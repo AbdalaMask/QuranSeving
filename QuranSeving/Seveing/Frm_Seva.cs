@@ -19,7 +19,7 @@ namespace QuranSeving.Seveing
     public delegate void EventSDataChanged(int sura, int ayah, bool state);
     public partial class Frm_Seva : KryptonForm
     {
-      
+
         public static EventSDataChanged eventSDataChanged = null;
         private IWavePlayer waveOut;
         private string fileName;
@@ -27,7 +27,7 @@ namespace QuranSeving.Seveing
         public Color ColorMouseHover = Color.FromArgb(70, 185, 215, 252);
         public Color ColorMouseLeave = Color.FromArgb(0, 255, 255, 255);
 
-      
+
         private readonly bool devicePanel;
         private MMDevice device;
         private readonly AudioSessionControl session;
@@ -87,7 +87,7 @@ namespace QuranSeving.Seveing
             txt_morec.Text = DateTime.Today.Month.ToString();
             txt_yearrec.Text = DateTime.Today.Year.ToString();
         }
-         
+
         private IWavePlayer CreateWavePlayer()
         {
 
@@ -111,19 +111,19 @@ namespace QuranSeving.Seveing
 
                 mf = new MediaFoundationReader(url);
                 wo = new WaveOutEvent();
-              
-                    wo.Init(mf);
-                    wo.Play();
-                   
-                
+
+                wo.Init(mf);
+                wo.Play();
+
+
             }
 
 
-             
+
 
             if (eventSDataChanged != null) eventSDataChanged(startSurah, currentendAyah, true);
-            
-            
+
+
 
         }
         void SetNext()
@@ -173,13 +173,13 @@ namespace QuranSeving.Seveing
             //Page 600: start surah 100, start ayah 10, end surah 102, end ayah 8 ( 100:10 to 100:11, then 101:01 to 101:11, followed by 102:01 to 102:08)
             if (RNotNet.Checked)
             {
-                  path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
+                path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
             }
             else
             {
-                  path = "http://everyayah.com/data/" + $"{pathK}/";
+                path = "http://everyayah.com/data/" + $"{pathK}/";
             }
-            
+
 
             var c = new List<string>();
             for (int surah = startSurah; surah <= endSurah; surah++)
@@ -213,7 +213,7 @@ namespace QuranSeving.Seveing
         }
 
 
-        
+
         private void Frm_Seva_Load(object sender, EventArgs e)
         {
             try
@@ -278,7 +278,7 @@ namespace QuranSeving.Seveing
                 if (MuteChanged != null)
                     MuteChanged(null, new MuteEventArgs(Device.AudioEndpointVolume.Mute));
             }
-           btnMuteUnmute.ImageKey = mute ? "Mute.png" : "Unmute.png";
+            btnMuteUnmute.ImageKey = mute ? "Mute.png" : "Unmute.png";
         }
         public void UpdateVolume()
         {
@@ -403,127 +403,157 @@ namespace QuranSeving.Seveing
 
         private void trackBarPosition_ValueChanged(object sender, EventArgs e)
         {
-            int last;
-            last = trackBarPosition.Maximum - 1;
-            if (trackBarPosition.Value >= last)
+            try
             {
-                SetNext();
+                int last;
+                last = trackBarPosition.Maximum - 1;
+                if (trackBarPosition.Value >= last)
+                {
+                    SetNext();
+                }
             }
+            catch (Exception ex)
+            {
+
+                timer1.Enabled = false;
+                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
+            }
+           
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            CleanUp();
-
-            if (waveOut != null)
-            {
-                if (waveOut.PlaybackState == PlaybackState.Playing)
-                {
-                    return;
-                }
-                else if (waveOut.PlaybackState == PlaybackState.Paused)
-                {
-                    waveOut.Play();
-
-                    return;
-                }
-            }
-            if (wo != null)
-            {
-                if (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    return;
-                }
-                else if (wo.PlaybackState == PlaybackState.Paused)
-                {
-                    wo.Play();
-
-                    return;
-                }
-            }
-            mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
-           
-           
             try
             {
+                CleanUp();
+
+                if (waveOut != null)
+                {
+                    if (waveOut.PlaybackState == PlaybackState.Playing)
+                    {
+                        return;
+                    }
+                    else if (waveOut.PlaybackState == PlaybackState.Paused)
+                    {
+                        waveOut.Play();
+
+                        return;
+                    }
+                }
+                if (wo != null)
+                {
+                    if (wo.PlaybackState == PlaybackState.Playing)
+                    {
+                        return;
+                    }
+                    else if (wo.PlaybackState == PlaybackState.Paused)
+                    {
+                        wo.Play();
+
+                        return;
+                    }
+                }
+                mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+
                 if (current > endAyahMP3 - 1) current = 0;
                 if (currentendAyah > endAyahMP3) currentendAyah = 0;
 
-                /*System.Threading.ThreadPool.QueueUserWorkItem(*/BeginPlayback(mp3sToWrapArray[current]);
+                BeginPlayback(mp3sToWrapArray[current]);
 
                 Rich_teb_1.Text = library.q.surahs[startSurah].ayat[current].text;
+                if (RNotNet.Checked)
+                {
+                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)audioFileReader.TotalTime.TotalMinutes,
+                 audioFileReader.TotalTime.Seconds);
+                }
+                else
+                {
+                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)mf.TotalTime.TotalMinutes,
+                      mf.TotalTime.Seconds);
+                }
 
             }
             catch (Exception createException)
             {
+                timer1.Enabled = false;
                 MessageBox.Show(String.Format("{0}", createException.Message), "Error Loading File");
                 return;
             }
- 
-            if (RNotNet.Checked)
-            {
-                labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)audioFileReader.TotalTime.TotalMinutes,
-             audioFileReader.TotalTime.Seconds);
-            }
-            else
-            {
-                try
-                {
-                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)mf.TotalTime.TotalMinutes,
-                     mf.TotalTime.Seconds);
-                }
-                catch (Exception ex)
-                {
 
-                   // throw ex;
-                }
-            
-            }
+
         }
 
         private void trackBarPosition_Scroll(object sender, EventArgs e)
         {
-            if (waveOut != null|| wo != null)
+            try
             {
-                if (RNotNet.Checked)
+                if (waveOut != null || wo != null)
                 {
-                    audioFileReader.CurrentTime = TimeSpan.FromSeconds(audioFileReader.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
-                    audioFileReader.Position = trackBarPosition.Value;
+                    if (RNotNet.Checked)
+                    {
+                        audioFileReader.CurrentTime = TimeSpan.FromSeconds(audioFileReader.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
+                        audioFileReader.Position = trackBarPosition.Value;
+                    }
+                    else
+                    {
+                        mf.CurrentTime = TimeSpan.FromSeconds(mf.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
+                        mf.Position = trackBarPosition.Value;
+                    }
                 }
-                else
-                {
-                    mf.CurrentTime = TimeSpan.FromSeconds(mf.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
-                    mf.Position = trackBarPosition.Value;
-                }
-           }
+            }
+            catch (Exception ex)
+            {
+
+                timer1.Enabled = false;
+                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
+            }
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
-            if (waveOut != null || audioFileReader  != null || mf != null || wo != null)
+            try
             {
 
                 if (RNotNet.Checked)
                 {
+                    if (waveOut != null && audioFileReader != null)
+                    {
 
-                    TimeSpan currentTime = (waveOut.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : audioFileReader.CurrentTime;
-                    trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / audioFileReader.TotalTime.TotalSeconds));
-                    labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
-                        currentTime.Seconds);
+                        TimeSpan currentTime = (waveOut.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : audioFileReader.CurrentTime;
+                        trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / audioFileReader.TotalTime.TotalSeconds));
+                        labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
+                            currentTime.Seconds);
+                    }
+                    else
+                    {
+                        trackBarPosition.Value = 0;
+                    }
                 }
-                else
+                else if (RNet.Checked)
                 {
-                    TimeSpan currentTime = (wo.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : mf.CurrentTime;
-                    trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / mf.TotalTime.TotalSeconds));
-                    labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
-                        currentTime.Seconds);
+                    if ( mf != null && wo != null)
+                    {
+
+                        TimeSpan currentTime = (wo.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : mf.CurrentTime;
+                        trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / mf.TotalTime.TotalSeconds));
+                        labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
+                            currentTime.Seconds);
+                    }
+                    else
+                    {
+                        trackBarPosition.Value = 0;
+                    }
                 }
+
             }
-            else
+            catch (Exception ex)
             {
-                trackBarPosition.Value = 0;
+                timer1.Enabled = false;
+                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
             }
+
+
         }
         public DataTable ds2 = new DataTable();
         private void btnEnter_Click(object sender, EventArgs e)
@@ -886,11 +916,11 @@ namespace QuranSeving.Seveing
             Frm_Mushaf frm = new Frm_Mushaf(pathK, ImageNum1, ImageNum2, startSurah, CountStartAyahPage);
             frm.Show();
         }
-       
-      
+
+
         private VolumeWaveProvider16 volumeProvider;
-        
-       
-     
+
+
+
     }
 }
