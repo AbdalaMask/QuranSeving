@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuranSeving", "QuranSeving\QuranSeving.csproj", "{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuranLibrary", "QuranClass\QuranLibrary.csproj", "{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11E4D241-9365-4554-A52C-06071657A2E2}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9AF43DA5-4C95-4F92-8156-84D3A17F5B10}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuranSeving</RootNamespace>
+    <AssemblyName>QuranSeving</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>elforkane.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Docking, Version=5.470.764.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonToolkitSuite5470.5.470.2111\lib\net47\Krypton Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Navigator, Version=5.470.810.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonToolkitSuite5470.5.470.2111\lib\net47\Krypton Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Ribbon, Version=5.470.864.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonToolkitSuite5470.5.470.2111\lib\net47\Krypton Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Toolkit, Version=5.470.2111.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonToolkitSuite5470.5.470.2111\lib\net47\Krypton Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Workspace, Version=5.470.738.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonToolkitSuite5470.5.470.2111\lib\net47\Krypton Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\FrmCreateDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB\FrmCreateDatabase.Designer.cs">
+      <DependentUpon>FrmCreateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Frm_db_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB\Frm_db_User.Designer.cs">
+      <DependentUpon>Frm_db_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SevaUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SevaUser.Designer.cs">
+      <DependentUpon>Frm_SevaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mushaf\Frm_Kep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mushaf\Frm_Kep.Designer.cs">
+      <DependentUpon>Frm_Kep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mushaf\Frm_Mushaf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mushaf\Frm_Mushaf.Designer.cs">
+      <DependentUpon>Frm_Mushaf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seveing\Frm_other_red.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seveing\Frm_other_red.Designer.cs">
+      <DependentUpon>Frm_other_red.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seveing\Frm_Seva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seveing\Frm_Seva.Designer.cs">
+      <DependentUpon>Frm_Seva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seveing\IconExtractor.cs" />
+    <Compile Include="Seveing\MuteEventArgs.cs" />
+    <Compile Include="Seveing\ReadFullyStream.cs" />
+    <Compile Include="Seveing\VolumeEventArgs.cs" />
+    <Compile Include="Tag\Frm_Teg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tag\Frm_Teg.Designer.cs">
+      <DependentUpon>Frm_Teg.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DB\FrmCreateDatabase.resx">
+      <DependentUpon>FrmCreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DB\Frm_db_User.resx">
+      <DependentUpon>Frm_db_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SevaUser.resx">
+      <DependentUpon>Frm_SevaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mushaf\Frm_Kep.resx">
+      <DependentUpon>Frm_Kep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mushaf\Frm_Mushaf.resx">
+      <DependentUpon>Frm_Mushaf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Seveing\Frm_other_red.resx">
+      <DependentUpon>Frm_other_red.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seveing\Frm_Seva.resx">
+      <DependentUpon>Frm_Seva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tag\Frm_Teg.resx">
+      <DependentUpon>Frm_Teg.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditDataSource_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_kuran_56315 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_minber_56317 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_seccade_56318 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\فكرة وبرمجة موقع القرآن حياتنا لا تنسونا من صالح دعائكم.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TabPage3.BackgroundImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_ma1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuranClass\QuranLibrary.csproj">
+      <Project>{D863C7B7-F8B1-4D5A-A7BD-078E8B2AC1B5}</Project>
+      <Name>QuranLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewDataSource_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewDataSource_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditDataSource_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteDataSource2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\0005.jpg" />
+    <None Include="bin\Debug\images\0004.jpg" />
+    <Content Include="elforkane.ico" />
+    <Content Include="Untitled - 2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
