@@ -95,20 +95,21 @@ namespace QuranSeving.Seveing
 
         }
         MediaFoundationReader mf; WaveOutEvent wo;
-        private void BeginPlayback(string filename)
+        private void BeginPlayback(object filename)
         {
 
-            waveOut = CreateWavePlayer();
+            var url = (string)filename;
             if (RNotNet.Checked)
             {
-                audioFileReader = new AudioFileReader(filename);
+                waveOut = CreateWavePlayer();
+                audioFileReader = new AudioFileReader(url);
                 waveOut.Init(audioFileReader);
                 waveOut.Play();
             }
             else if (RNet.Checked)
             {
-               
-                using ( mf = new MediaFoundationReader(filename))
+
+                mf = new MediaFoundationReader(url);
                 using ( wo = new WaveOutEvent())
                 {
                     wo.Init(mf);
@@ -399,6 +400,13 @@ namespace QuranSeving.Seveing
             {
                 waveOut.Stop();
             }
+            if (wo != null)
+            {
+                if (wo.PlaybackState == PlaybackState.Playing)
+                {
+                    wo.Stop();
+                }
+            }
         }
 
         private void buttonPause_Click(object sender, EventArgs e)
@@ -408,6 +416,13 @@ namespace QuranSeving.Seveing
                 if (waveOut.PlaybackState == PlaybackState.Playing)
                 {
                     waveOut.Pause();
+                }
+            }
+            if (wo != null)
+            {
+                if (wo.PlaybackState == PlaybackState.Playing)
+                {
+                    wo.Pause();
                 }
             }
         }
@@ -439,12 +454,20 @@ namespace QuranSeving.Seveing
                     return;
                 }
             }
-            mp3sToWrapArray.AddRange(Mp3ListWeb(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+            if (RNotNet.Checked)
+            {
+                mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+            }
+            else
+            {
+                mp3sToWrapArray.AddRange(Mp3ListWeb(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+            }
             try
             {
                 if (current > endAyahMP3 - 1) current = 0;
                 if (currentendAyah > endAyahMP3) currentendAyah = 0;
-                BeginPlayback(mp3sToWrapArray[current]);
+
+                System.Threading.ThreadPool.QueueUserWorkItem(BeginPlayback,mp3sToWrapArray[current]);
 
                 Rich_teb_1.Text = library.q.surahs[startSurah].ayat[current].text;
 
@@ -462,8 +485,17 @@ namespace QuranSeving.Seveing
             }
             else
             {
-                labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)mf.TotalTime.TotalMinutes,
-           mf.TotalTime.Seconds);
+                try
+                {
+                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)mf.TotalTime.TotalMinutes,
+                     mf.TotalTime.Seconds);
+                }
+                catch (Exception ex)
+                {
+
+                   // throw ex;
+                }
+            
             }
         }
 

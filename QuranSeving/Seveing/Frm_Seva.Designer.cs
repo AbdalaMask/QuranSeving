@@ -91,7 +91,6 @@
             this.btn_Sevaing = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.volumeSlider1 = new NAudio.Gui.VolumeSlider();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -387,7 +386,6 @@
             // 
             // kryptonHeaderGroup4.Panel
             // 
-            this.kryptonHeaderGroup4.Panel.Controls.Add(this.volumeSlider1);
             this.kryptonHeaderGroup4.Panel.Controls.Add(this.btnMuteUnmute);
             this.kryptonHeaderGroup4.Panel.Controls.Add(this.tbVolume);
             this.kryptonHeaderGroup4.Panel.Controls.Add(this.toolStrip1);
@@ -770,13 +768,6 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // volumeSlider1
-            // 
-            this.volumeSlider1.Location = new System.Drawing.Point(512, 99);
-            this.volumeSlider1.Name = "volumeSlider1";
-            this.volumeSlider1.Size = new System.Drawing.Size(109, 19);
-            this.volumeSlider1.TabIndex = 10;
-            // 
             // Frm_Seva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -906,6 +897,5 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.Button btnMuteUnmute;
         private System.Windows.Forms.ImageList ilMuteUnmute;
-        private NAudio.Gui.VolumeSlider volumeSlider1;
     }
 }
