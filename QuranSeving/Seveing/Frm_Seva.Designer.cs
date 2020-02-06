@@ -91,6 +91,12 @@
             this.btn_Sevaing = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.AddCt = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.EditrCt = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.DelCt = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -128,6 +134,7 @@
             this.G_LOGIN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComName)).BeginInit();
             this.toolStrip3.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonSplitContainer1
@@ -542,11 +549,12 @@
             this.kryptonHeaderGroup3.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
             this.kryptonHeaderGroup3.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeaderGroup3.HeaderVisibleSecondary = false;
-            this.kryptonHeaderGroup3.Location = new System.Drawing.Point(843, 3);
+            this.kryptonHeaderGroup3.Location = new System.Drawing.Point(806, 3);
             this.kryptonHeaderGroup3.Name = "kryptonHeaderGroup3";
             // 
             // kryptonHeaderGroup3.Panel
             // 
+            this.kryptonHeaderGroup3.Panel.Controls.Add(this.toolStrip4);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonButton2);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.com_c2);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.btn_Frm_Mushaf);
@@ -554,13 +562,13 @@
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel13);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel14);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel15);
-            this.kryptonHeaderGroup3.Size = new System.Drawing.Size(339, 171);
+            this.kryptonHeaderGroup3.Size = new System.Drawing.Size(376, 171);
             this.kryptonHeaderGroup3.TabIndex = 8;
             this.kryptonHeaderGroup3.ValuesPrimary.Heading = "معلومات ";
             // 
             // kryptonButton2
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(43, 91);
+            this.kryptonButton2.Location = new System.Drawing.Point(58, 107);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.Size = new System.Drawing.Size(121, 27);
             this.kryptonButton2.TabIndex = 6;
@@ -571,7 +579,7 @@
             // 
             this.com_c2.DropDownWidth = 121;
             this.com_c2.IntegralHeight = false;
-            this.com_c2.Location = new System.Drawing.Point(43, 64);
+            this.com_c2.Location = new System.Drawing.Point(58, 80);
             this.com_c2.Name = "com_c2";
             this.com_c2.Size = new System.Drawing.Size(121, 21);
             this.com_c2.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -580,7 +588,7 @@
             // 
             // btn_Frm_Mushaf
             // 
-            this.btn_Frm_Mushaf.Location = new System.Drawing.Point(195, 91);
+            this.btn_Frm_Mushaf.Location = new System.Drawing.Point(210, 107);
             this.btn_Frm_Mushaf.Name = "btn_Frm_Mushaf";
             this.btn_Frm_Mushaf.Size = new System.Drawing.Size(127, 27);
             this.btn_Frm_Mushaf.TabIndex = 4;
@@ -591,7 +599,7 @@
             // 
             this.com_c1.DropDownWidth = 121;
             this.com_c1.IntegralHeight = false;
-            this.com_c1.Location = new System.Drawing.Point(195, 64);
+            this.com_c1.Location = new System.Drawing.Point(210, 80);
             this.com_c1.Name = "com_c1";
             this.com_c1.Size = new System.Drawing.Size(127, 21);
             this.com_c1.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -600,7 +608,7 @@
             // 
             // kryptonLabel13
             // 
-            this.kryptonLabel13.Location = new System.Drawing.Point(49, 38);
+            this.kryptonLabel13.Location = new System.Drawing.Point(64, 54);
             this.kryptonLabel13.Name = "kryptonLabel13";
             this.kryptonLabel13.Size = new System.Drawing.Size(57, 20);
             this.kryptonLabel13.TabIndex = 2;
@@ -608,7 +616,7 @@
             // 
             // kryptonLabel14
             // 
-            this.kryptonLabel14.Location = new System.Drawing.Point(234, 38);
+            this.kryptonLabel14.Location = new System.Drawing.Point(249, 54);
             this.kryptonLabel14.Name = "kryptonLabel14";
             this.kryptonLabel14.Size = new System.Drawing.Size(54, 20);
             this.kryptonLabel14.TabIndex = 1;
@@ -617,7 +625,7 @@
             // kryptonLabel15
             // 
             this.kryptonLabel15.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel15.Location = new System.Drawing.Point(91, 12);
+            this.kryptonLabel15.Location = new System.Drawing.Point(106, 28);
             this.kryptonLabel15.Name = "kryptonLabel15";
             this.kryptonLabel15.Size = new System.Drawing.Size(156, 20);
             this.kryptonLabel15.TabIndex = 0;
@@ -768,6 +776,58 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // toolStrip4
+            // 
+            this.toolStrip4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddCt,
+            this.toolStripSeparator4,
+            this.EditrCt,
+            this.toolStripSeparator5,
+            this.DelCt});
+            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(374, 25);
+            this.toolStrip4.TabIndex = 7;
+            this.toolStrip4.Text = "toolStrip4";
+            // 
+            // AddCt
+            // 
+            this.AddCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddCt.Image = global::QuranSeving.Properties.Resources.AddNewDataSource_16x16;
+            this.AddCt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddCt.Name = "AddCt";
+            this.AddCt.Size = new System.Drawing.Size(23, 22);
+            this.AddCt.Text = "اضافة قارئ";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // EditrCt
+            // 
+            this.EditrCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditrCt.Image = global::QuranSeving.Properties.Resources.EditDataSource_16x16;
+            this.EditrCt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditrCt.Name = "EditrCt";
+            this.EditrCt.Size = new System.Drawing.Size(23, 22);
+            this.EditrCt.Text = "تعديل قارئ";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // DelCt
+            // 
+            this.DelCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DelCt.Image = global::QuranSeving.Properties.Resources.DeleteDataSource2_32x32;
+            this.DelCt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DelCt.Name = "DelCt";
+            this.DelCt.Size = new System.Drawing.Size(23, 22);
+            this.DelCt.Text = "حذف قارئ";
+            // 
             // Frm_Seva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -829,6 +889,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ComName)).EndInit();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -897,5 +959,11 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.Button btnMuteUnmute;
         private System.Windows.Forms.ImageList ilMuteUnmute;
+        private System.Windows.Forms.ToolStrip toolStrip4;
+        private System.Windows.Forms.ToolStripButton AddCt;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton EditrCt;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton DelCt;
     }
 }

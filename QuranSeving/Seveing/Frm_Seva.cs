@@ -110,15 +110,12 @@ namespace QuranSeving.Seveing
             {
 
                 mf = new MediaFoundationReader(url);
-                using ( wo = new WaveOutEvent())
-                {
+                wo = new WaveOutEvent();
+              
                     wo.Init(mf);
                     wo.Play();
-                    while (wo.PlaybackState == PlaybackState.Playing)
-                    {
-                        Application.DoEvents();
-                    }
-                }
+                   
+                
             }
 
 
@@ -134,11 +131,12 @@ namespace QuranSeving.Seveing
             if (eventSDataChanged != null) eventSDataChanged(startSurah, currentendAyah, false);
             current = current + 1;
             currentendAyah++;
-            buttonPlay.PerformClick();
+            buttonPlay_Click(null, null);
         }
         private void CleanUp()
         {
             mp3sToWrapArray.Clear();
+
             if (audioFileReader != null)
             {
                 audioFileReader.Dispose();
@@ -148,6 +146,16 @@ namespace QuranSeving.Seveing
             {
                 waveOut.Dispose();
                 waveOut = null;
+            }
+            if (mf != null)
+            {
+                mf.Dispose();
+                mf = null;
+            }
+            if (wo != null)
+            {
+                wo.Dispose();
+                wo = null;
             }
         }
         /// <summary>
@@ -160,10 +168,19 @@ namespace QuranSeving.Seveing
         /// <returns></returns>
         private string[] Mp3List(int startSurah, int startAyah, int endSurah, int endAyah)
         {
+            string path = "";
             //TEST case
             //Page 600: start surah 100, start ayah 10, end surah 102, end ayah 8 ( 100:10 to 100:11, then 101:01 to 101:11, followed by 102:01 to 102:08)
+            if (RNotNet.Checked)
+            {
+                  path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
+            }
+            else
+            {
+                  path = "http://everyayah.com/data/" + $"{pathK}/";
+            }
+            
 
-            string path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
             var c = new List<string>();
             for (int surah = startSurah; surah <= endSurah; surah++)
             {
@@ -196,50 +213,7 @@ namespace QuranSeving.Seveing
         }
 
 
-        /// <summary>
-        /// grab list of start and end ayahs for each surah
-        /// </summary>
-        /// <param name="startSurah"></param>
-        /// <param name="startAyah"></param>
-        /// <param name="endSurah"></param>
-        /// <param name="endAyah"></param>
-        /// <returns></returns>
-        private string[] Mp3ListWeb(int startSurah, int startAyah, int endSurah, int endAyah)
-        {
-            //TEST case
-            //Page 600: start surah 100, start ayah 10, end surah 102, end ayah 8 ( 100:10 to 100:11, then 101:01 to 101:11, followed by 102:01 to 102:08)
-
-            string path = "http://everyayah.com/data/"+$"{pathK}/";
-            var c = new List<string>();
-            for (int surah = startSurah; surah <= endSurah; surah++)
-            {
-                int finalAyah = endAyah;
-
-                //BUG caught nov-10-2010: if surah is not startsurah, reset ayah counter back to 0 to add bismillah
-                if (surah != startSurah)
-                    startAyah = 0;
-
-
-                //if (surah == endSurah)
-                //    finalAyah = endAyah;
-                //else 
-                if (surah < endSurah) //if this surah is not the last on the page, then all the ayahs will be used up until end of this surah
-                    finalAyah = library.QuranMetaData.SurahsContainer._suras[surah - 1].ayas;
-
-                for (int ayah = startAyah; ayah <= finalAyah; ayah++)
-                {
-                    if (ayah == 0)
-                    {
-                        c.Add(Path.Combine(path, "001001.mp3")); //Add Bismillah
-                    }
-                    else
-                        c.Add(Path.Combine(path, surah.ToString().PadLeft(3, '0') + ayah.ToString().PadLeft(3, '0') + ".mp3"));
-                }
-            }
-            if (startSurah == 100)
-                System.Threading.Thread.Sleep(1);
-            return c.ToArray();
-        }
+        
         private void Frm_Seva_Load(object sender, EventArgs e)
         {
             try
@@ -377,7 +351,7 @@ namespace QuranSeving.Seveing
             switch (com_c1.SelectedIndex)
             {
                 case 0:
-                    pathK = "Minshawy_Murattal_48kbps";
+                    pathK = "Minshawy_Murattal_128kbps";
                     break;
                 case 1:
                     pathK = "Banna_32kbps";
@@ -454,20 +428,28 @@ namespace QuranSeving.Seveing
                     return;
                 }
             }
-            if (RNotNet.Checked)
+            if (wo != null)
             {
-                mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+                if (wo.PlaybackState == PlaybackState.Playing)
+                {
+                    return;
+                }
+                else if (wo.PlaybackState == PlaybackState.Paused)
+                {
+                    wo.Play();
+
+                    return;
+                }
             }
-            else
-            {
-                mp3sToWrapArray.AddRange(Mp3ListWeb(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
-            }
+            mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
+           
+           
             try
             {
                 if (current > endAyahMP3 - 1) current = 0;
                 if (currentendAyah > endAyahMP3) currentendAyah = 0;
 
-                System.Threading.ThreadPool.QueueUserWorkItem(BeginPlayback,mp3sToWrapArray[current]);
+                /*System.Threading.ThreadPool.QueueUserWorkItem(*/BeginPlayback(mp3sToWrapArray[current]);
 
                 Rich_teb_1.Text = library.q.surahs[startSurah].ayat[current].text;
 
