@@ -112,7 +112,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+            this.kryptonTreeView1 = new Krypton.Toolkit.KryptonTreeView();
             this.Rich_teb_4 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -161,7 +161,7 @@
             // kryptonTreeView1
             // 
             this.kryptonTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonTreeView1.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
+            this.kryptonTreeView1.ItemStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kryptonTreeView1.Name = "kryptonTreeView1";
             treeNode1.Name = "Node1";
@@ -299,6 +299,6 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         internal System.Windows.Forms.RichTextBox Rich_teb_4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
+        private Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
     }
 }

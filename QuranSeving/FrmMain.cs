@@ -1,5 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using QuranSeving.Mushaf;
+﻿using Krypton.Toolkit;
 using QuranSeving.Seveing;
 using QuranSeving.Tag;
 using System;
@@ -57,12 +56,6 @@ namespace QuranSeving
         {
             FormAbout formAbout = new FormAbout();
             formAbout.Show();
-        }
-
-        private void ts_Frm_Mushaf_Click(object sender, EventArgs e)
-        {
-            Frm_Mushaf frm = new Frm_Mushaf();
-            frm.Show();
         }
     }
 }

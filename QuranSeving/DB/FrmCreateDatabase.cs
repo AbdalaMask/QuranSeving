@@ -1,9 +1,9 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
+using SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,21 +31,21 @@ namespace QuranSeving.DB
             //                    [GENDER] NVARCHAR(2048) NULL)";
             try
             {
-                SQLiteConnection.CreateFile(ConString1);
+                //SQLiteConnection.CreateFile(ConString1);
 
 
-                using (SQLiteConnection conn = new SQLiteConnection("data source =" + ConString1))
-                {
-                    using (SQLiteCommand cmd = new SQLiteCommand(conn))
-                    {
-                        conn.Open();
-                        cmd.CommandText = createQuery;
-                        cmd.ExecuteNonQuery();
+                //using (SQLiteConnection conn = new SQLiteConnection("data source =" + ConString1))
+                //{
+                //    using (SQLiteCommand cmd = new SQLiteCommand(conn))
+                //    {
+                //        conn.Open();
+                //        cmd.CommandText = createQuery;
+                //        cmd.ExecuteNonQuery();
 
 
-                    }
+                //    }
 
-                }
+                //}
                 MessageBox.Show("تم إنشاء قاعدة البيانات", "نجح", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)

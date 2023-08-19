@@ -1,14 +1,16 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
+using SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuranLibrary.Sql;
+using System.Text.RegularExpressions;
 
 namespace QuranSeving.DB
 {
@@ -26,9 +28,10 @@ namespace QuranSeving.DB
         {
             InitializeComponent();
         }
-
+        private  QuranSevingSql database;
         private void Frm_db_User_Load(object sender, EventArgs e)
         {
+            database = new QuranSevingSql();
             com_sname.Items.AddRange(c2);
             com_dey1.Items.AddRange(c7);
             com_hkeep.Items.AddRange(c8);
@@ -46,47 +49,41 @@ namespace QuranSeving.DB
                 tsStatus.Left = 0 - tsStatus.Width;
             }
         }
-
-        private void btn_Open_Click(object sender, EventArgs e)
+   
+        private async void btn_Open_Click(object sender, EventArgs e)
         {
             if (sqlLiteFileName == "")
             {
                 MessageBox.Show("من فضلك ادخل اسم قاعدة البيانات", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            sqlLiteFileName = string.Format("{0}.sqlite", txt_open_db.Text);
+            sqlLiteFileName = string.Format("{0}.db", txt_open_db.Text);
 
 
-            string ConString3 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
-            SQLiteConnection conn3 = new SQLiteConnection(ConString3);
-            if (conn3.State == System.Data.ConnectionState.Open)
-                conn3.Close();
-            string SQL3str = "SELECT * FROM quran";
+            string ConString3 =  Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
 
-            using (SQLiteCommand cmd = new SQLiteCommand(conn3))
+
+            using (var db = await database.TryCreateDatabase(ConString3))
             {
-                conn3.Open();
-                cmd.CommandText = SQL3str;
-                using (SQLiteDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.HasRows == true)
-                    {
-                        while (reader.Read())
-                        {
-                            string output = reader["nday"].ToString();
+                
+                var nday = db.Table<DatabaseUserSevaing>().Select(s => s.nday).ToList();
 
-                            com_dey1.Items.Add(output);
-                        }
-                    }
+                foreach (var item in nday)
+                {
+                    com_dey1.Items.Add(item);
                 }
+                
+
             }
 
+            
+
             MessageBox.Show("تم الاتصال بقاعدة البيانات", "رسالة تاكيد");
-            conn3.Close();
+            
 
         }
 
-        private void btn_seva_db_Click(object sender, EventArgs e)
+        private async void btn_seva_db_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(com_sname.Text))
             {
@@ -118,74 +115,77 @@ namespace QuranSeving.DB
                 }
                 return;
             }
-            string ConString3 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
-            SQLiteConnection conn3 = new SQLiteConnection(ConString3);
+            string ConString3 =  Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
+          
 
-            string SQL3str = "SELECT * FROM quran where nday = @nday";
-            if (conn3.State == System.Data.ConnectionState.Open)
+            using (var db = await database.TryCreateDatabase(ConString3))
             {
-                conn3.Close();
+
+                var nday = db.Table<DatabaseUserSevaing>().Where(s => s.nday == txt_dey.Text).ToList();
+
+                db.Insert(new DatabaseUserSevaing
+                {
+                    Sname = com_sname.Text,
+                    Hkeep = com_hkeep.Text,
+                    mayat = txt_num_ayet.Text,
+                    paamount = txt_num_Page.Text,
+                    ropamount = txt_num_R.Text,
+                    nday = txt_dey.Text,
+                    RDate = txt_date.Text,
+                    Nwday = com_dey1.Text,
+                    RTime = txt_tim.Text,
+                    Hput = txt_dc.Text,
+                    ayafrm = txt_num_M.Text,
+                    ayato = txt_num_l.Text,
+                    papfrm = txt_num_mp.Text,
+                    papto = txt_num_lp.Text,
+                    ropfrm = txt_mr.Text,
+                    ropto = txt_ml.Text,
+
+                }, typeof(DatabaseUserSevaing));
+
+
             }
-            else
-            {
-                conn3.Open();
-            }
 
 
-            SQLiteDataAdapter adp = new SQLiteDataAdapter(SQL3str, conn3);
-            adp.SelectCommand.Parameters.AddWithValue("@nday", txt_dey.Text);
-            adp.Fill(ds, "quran");
-
-            conn3.Close();
-            //seva
-            SQL3str = "insert into quran (sname,hkeep,mayat,paamount,ropamount,nday,rdate,Nwday,RTime,Hput,ayafrm,ayato,papfrm,papto,ropfrm,ropto)VALUES(@sname,@hkeep,@mayat,@paamount,@ropamount,@nday,@rdate,@Nwday,@RTime,@Hput,@ayafrm,@ayato,@papfrm,@papto,@ropfrm,@ropto)";
-            SQLiteCommand cmd = new SQLiteCommand(SQL3str, conn3);
-            cmd.Parameters.AddWithValue("@sname", com_sname.Text);
-            cmd.Parameters.AddWithValue("@hkeep", com_hkeep.Text);
-            cmd.Parameters.AddWithValue("@mayat", txt_num_ayet.Text);
-            cmd.Parameters.AddWithValue("@paamount", txt_num_Page.Text);
-            cmd.Parameters.AddWithValue("@ropamount", txt_num_R.Text);
-            cmd.Parameters.AddWithValue("@nday", txt_dey.Text);
-            cmd.Parameters.AddWithValue("@rdate", txt_date.Text);
-            cmd.Parameters.AddWithValue("@Nwday", com_dey1.Text);
-            cmd.Parameters.AddWithValue("@RTime", txt_tim.Text);
-            cmd.Parameters.AddWithValue("@Hput", txt_dc.Text);
-            cmd.Parameters.AddWithValue("@ayafrm", txt_num_M.Text);
-            cmd.Parameters.AddWithValue("@ayato", txt_num_l.Text);
-            cmd.Parameters.AddWithValue("@papfrm", txt_num_mp.Text);
-            cmd.Parameters.AddWithValue("@papto", txt_num_lp.Text);
-            cmd.Parameters.AddWithValue("@ropfrm", txt_mr.Text);
-            cmd.Parameters.AddWithValue("@ropto", txt_ml.Text);
-            conn3.Open();
-            cmd.ExecuteNonQuery();
-            conn3.Close();
-
+           
+          
         }
 
 
 
-        public void filltext() //حدث ملئ مربعات النصوص في التاب الأول والثاني
+        public async void filltext() //حدث ملئ مربعات النصوص في التاب الأول والثاني
         {
             try
             {
+                string ConString3 = Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
+
+                using (var db = await database.TryCreateDatabase(ConString3))
+                {
+
+                    var nday = db.Table<DatabaseUserSevaing>().Where(s => s.nday == txt_dey.Text).ToList();
+
+                    //txthkeep.Text = ds1.Tables["quran"].Rows[BS.Position]["hkeep"].ToString();
+                    //txtsname.Text = ds1.Tables["quran"].Rows[BS.Position]["sname"].ToString();
+                    //txtmayat.Text = ds1.Tables["quran"].Rows[BS.Position]["mayat"].ToString();
+                    //txtayafrm.Text = ds1.Tables["quran"].Rows[BS.Position]["ayafrm"].ToString();
+                    //txtayato.Text = ds1.Tables["quran"].Rows[BS.Position]["ayato"].ToString();
+                    //txtpaamount.Text = ds1.Tables["quran"].Rows[BS.Position]["paamount"].ToString();
+                    //txtpapfrm.Text = ds1.Tables["quran"].Rows[BS.Position]["papfrm"].ToString();
+                    //txtpapto.Text = ds1.Tables["quran"].Rows[BS.Position]["papto"].ToString();
+                    //txtropamount.Text = ds1.Tables["quran"].Rows[BS.Position]["ropamount"].ToString();
+                    //txtropfrm.Text = ds1.Tables["quran"].Rows[BS.Position]["ropfrm"].ToString();
+                    //txtropto.Text = ds1.Tables["quran"].Rows[BS.Position]["ropto"].ToString();
+                    //txtnwday.Text = ds1.Tables["quran"].Rows[BS.Position]["nwday"].ToString();
+                    //txtrdate.Text = ds1.Tables["quran"].Rows[BS.Position]["rdate"].ToString();
+                    //txtrtime.Text = ds1.Tables["quran"].Rows[BS.Position]["rtime"].ToString();
+                    //txthput.Text = ds1.Tables["quran"].Rows[BS.Position]["hput"].ToString();
+
+
+                }
 
 
 
-                //txthkeep.Text = ds1.Tables["quran"].Rows[BS.Position]["hkeep"].ToString();
-                //txtsname.Text = ds1.Tables["quran"].Rows[BS.Position]["sname"].ToString();
-                //txtmayat.Text = ds1.Tables["quran"].Rows[BS.Position]["mayat"].ToString();
-                //txtayafrm.Text = ds1.Tables["quran"].Rows[BS.Position]["ayafrm"].ToString();
-                //txtayato.Text = ds1.Tables["quran"].Rows[BS.Position]["ayato"].ToString();
-                //txtpaamount.Text = ds1.Tables["quran"].Rows[BS.Position]["paamount"].ToString();
-                //txtpapfrm.Text = ds1.Tables["quran"].Rows[BS.Position]["papfrm"].ToString();
-                //txtpapto.Text = ds1.Tables["quran"].Rows[BS.Position]["papto"].ToString();
-                //txtropamount.Text = ds1.Tables["quran"].Rows[BS.Position]["ropamount"].ToString();
-                //txtropfrm.Text = ds1.Tables["quran"].Rows[BS.Position]["ropfrm"].ToString();
-                //txtropto.Text = ds1.Tables["quran"].Rows[BS.Position]["ropto"].ToString();
-                //txtnwday.Text = ds1.Tables["quran"].Rows[BS.Position]["nwday"].ToString();
-                //txtrdate.Text = ds1.Tables["quran"].Rows[BS.Position]["rdate"].ToString();
-                //txtrtime.Text = ds1.Tables["quran"].Rows[BS.Position]["rtime"].ToString();
-                //txthput.Text = ds1.Tables["quran"].Rows[BS.Position]["hput"].ToString();
 
 
 
@@ -195,29 +195,7 @@ namespace QuranSeving.DB
 
             }
         }
-        public void filllistbox()
-        {
-            string ConString4 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUserSevaing\\{0}", sqlLiteFileName);
-            SQLiteConnection conn4 = new SQLiteConnection(ConString4);
-            //فتح الأتصال
-            conn4.Open();
-            //عبارة أستعلام وهي أختيار البيانات عندما تتساوى قيمة الكمبوبكس مع عمود القسم
-            string str = "SELECT * FROM quran where nday = '" + com_dey1.Text + "'";
-            //تعريف كائن وفق الأستعلام والأتصال
-            SQLiteDataAdapter adp1 = new SQLiteDataAdapter(str, conn4);
-            //تفريغ الداتا ست
-            ds.Clear();
-            //ملئ الدتا ست بالبيانات
-            adp1.Fill(ds1, "quran");
-            //سحب البينات من الدتا ست
-            BS.DataSource = ds1;
-            BS.DataMember = "quran";
-            //ملئ الليست بوكس بالجدول المراد
-
-            adp1.Dispose();
-            //أغلاق الأتصال
-            conn4.Close();
-        }
+     
 
         private void com_hkeep_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -287,7 +265,7 @@ namespace QuranSeving.DB
 
         private void com_dey1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filllistbox();
+           
             filltext();
         }
     }

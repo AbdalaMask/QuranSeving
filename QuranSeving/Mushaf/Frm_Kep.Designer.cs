@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Kep));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonSplitContainer1 = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.Rich_teb_1 = new System.Windows.Forms.RichTextBox();
-            this.c4 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.com_Teyp = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.c4 = new Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.com_Teyp = new Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.Rich_teb_2 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
@@ -116,7 +116,7 @@
             this.c4.Location = new System.Drawing.Point(94, 46);
             this.c4.Name = "c4";
             this.c4.Size = new System.Drawing.Size(138, 21);
-            this.c4.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.c4.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.c4.TabIndex = 3;
             this.c4.Text = " ";
             this.c4.SelectedIndexChanged += new System.EventHandler(this.c4_SelectedIndexChanged);
@@ -136,7 +136,7 @@
             this.com_Teyp.Location = new System.Drawing.Point(583, 46);
             this.com_Teyp.Name = "com_Teyp";
             this.com_Teyp.Size = new System.Drawing.Size(138, 21);
-            this.com_Teyp.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.com_Teyp.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.com_Teyp.TabIndex = 1;
             this.com_Teyp.Text = " ";
             this.com_Teyp.SelectedIndexChanged += new System.EventHandler(this.com_Teyp_SelectedIndexChanged);
@@ -189,13 +189,13 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         internal System.Windows.Forms.RichTextBox Rich_teb_1;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox c4;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox com_Teyp;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonComboBox c4;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonComboBox com_Teyp;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         internal System.Windows.Forms.RichTextBox Rich_teb_2;
     }
 }

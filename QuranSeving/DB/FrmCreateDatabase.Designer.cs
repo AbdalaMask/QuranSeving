@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateDatabase));
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtCreateDatabase = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnCreateDatabase = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.txtCreateDatabase = new Krypton.Toolkit.KryptonTextBox();
+            this.btnCreateDatabase = new Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
             // kryptonLabel1
@@ -80,8 +80,8 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtCreateDatabase;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateDatabase;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonTextBox txtCreateDatabase;
+        private Krypton.Toolkit.KryptonButton btnCreateDatabase;
     }
 }

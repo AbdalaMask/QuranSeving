@@ -1,24 +1,26 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using QuranSeving.Mushaf;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using SQLite;
 using NAudio.Wave;
 using NAudio.CoreAudioApi;
+using System.Runtime.InteropServices;
 using System.IO;
 using System.Data;
 using QuranSeving.DB;
 using Microsoft.VisualBasic.CompilerServices;
-using System.Net;
-using System.Diagnostics;
+using QuranLibrary.Sql;
+using System.Linq;
 
 namespace QuranSeving.Seveing
 {
     public delegate void EventSDataChanged(int sura, int ayah, bool state);
     public partial class Frm_Seva : KryptonForm
     {
+        private QuranSevingSql database;
 
         public static EventSDataChanged eventSDataChanged = null;
         private IWavePlayer waveOut;
@@ -59,8 +61,8 @@ namespace QuranSeving.Seveing
         int current = 0;
         int currentendAyah = 0;
         string pathK;
-        int ImageNum1 = 4;
-        int ImageNum2 = 5;
+        int ImageNum1 = 1;
+        int ImageNum2 = 2;
 
 
         int CountStartAyahPage = 1;
@@ -87,43 +89,20 @@ namespace QuranSeving.Seveing
             txt_morec.Text = DateTime.Today.Month.ToString();
             txt_yearrec.Text = DateTime.Today.Year.ToString();
         }
-
         private IWavePlayer CreateWavePlayer()
         {
 
             return new WaveOut();
 
         }
-        MediaFoundationReader mf; WaveOutEvent wo;
-        private void BeginPlayback(object filename)
+        private void BeginPlayback(string filename)
         {
 
-            var url = (string)filename;
-            if (RNotNet.Checked)
-            {
-                waveOut = CreateWavePlayer();
-                audioFileReader = new AudioFileReader(url);
-                waveOut.Init(audioFileReader);
-                waveOut.Play();
-            }
-            else if (RNet.Checked)
-            {
-
-                mf = new MediaFoundationReader(url);
-                wo = new WaveOutEvent();
-
-                wo.Init(mf);
-                wo.Play();
-
-
-            }
-
-
-
-
+            waveOut = CreateWavePlayer();
+            audioFileReader = new AudioFileReader(filename);
+            waveOut.Init(audioFileReader);
             if (eventSDataChanged != null) eventSDataChanged(startSurah, currentendAyah, true);
-
-
+            waveOut.Play();
 
         }
         void SetNext()
@@ -131,12 +110,11 @@ namespace QuranSeving.Seveing
             if (eventSDataChanged != null) eventSDataChanged(startSurah, currentendAyah, false);
             current = current + 1;
             currentendAyah++;
-            buttonPlay_Click(null, null);
+            buttonPlay.PerformClick();
         }
         private void CleanUp()
         {
             mp3sToWrapArray.Clear();
-
             if (audioFileReader != null)
             {
                 audioFileReader.Dispose();
@@ -146,16 +124,6 @@ namespace QuranSeving.Seveing
             {
                 waveOut.Dispose();
                 waveOut = null;
-            }
-            if (mf != null)
-            {
-                mf.Dispose();
-                mf = null;
-            }
-            if (wo != null)
-            {
-                wo.Dispose();
-                wo = null;
             }
         }
         /// <summary>
@@ -168,19 +136,10 @@ namespace QuranSeving.Seveing
         /// <returns></returns>
         private string[] Mp3List(int startSurah, int startAyah, int endSurah, int endAyah)
         {
-            string path = "";
             //TEST case
             //Page 600: start surah 100, start ayah 10, end surah 102, end ayah 8 ( 100:10 to 100:11, then 101:01 to 101:11, followed by 102:01 to 102:08)
-            if (RNotNet.Checked)
-            {
-                path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
-            }
-            else
-            {
-                path = "http://everyayah.com/data/" + $"{pathK}/";
-            }
 
-
+            string path = Application.StartupPath + string.Format(@"\Quran\{0}\", pathK);
             var c = new List<string>();
             for (int surah = startSurah; surah <= endSurah; surah++)
             {
@@ -211,13 +170,12 @@ namespace QuranSeving.Seveing
                 System.Threading.Thread.Sleep(1);
             return c.ToArray();
         }
-
-
-
-        private void Frm_Seva_Load(object sender, EventArgs e)
+        private async void Frm_Seva_Load(object sender, EventArgs e)
         {
             try
             {
+
+                database = new QuranSevingSql();
                 com_c1.Items.AddRange(c1);
                 com_c2.Items.AddRange(c2);
                 //for (int i = 0; i < library.QuranMetaData.SurahsContainer._suras.Length; i++)
@@ -228,29 +186,25 @@ namespace QuranSeving.Seveing
                 com_c2.SelectedIndex = 0;
 
                 UpdateMuted();
-                string ConString3 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUser\\{0}", "DatabaseUser.db3");
-                SQLiteConnection conn3 = new SQLiteConnection(ConString3);
-                if (conn3.State == System.Data.ConnectionState.Open)
-                    conn3.Close();
-                string SQL3str = "SELECT * FROM de";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(conn3))
+                string ConString3 = Application.StartupPath + string.Format("\\DatabaseUser\\{0}", "DatabaseUser.db3");
+                
+                using (var db = await database.TryCreateDatabase(ConString3))
                 {
-                    conn3.Open();
-                    cmd.CommandText = SQL3str;
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+
+                    var nday = db.Table<SevaUser>().ToList();
+
+                    foreach (var item in nday)
                     {
-                        if (reader.HasRows == true)
-                        {
-                            while (reader.Read())
-                            {
-                                string output = reader["mname"].ToString();
-                                txt_hapday.Text = reader["hapday"].ToString();
-                                ComName.Items.Add(output);
-                            }
-                        }
+                        txt_hapday.Text = item.hapday;
+                        ComName.Items.Add(item.mname);
                     }
+
+
+
+
                 }
+             
+                
 
 
 
@@ -278,7 +232,7 @@ namespace QuranSeving.Seveing
                 if (MuteChanged != null)
                     MuteChanged(null, new MuteEventArgs(Device.AudioEndpointVolume.Mute));
             }
-            btnMuteUnmute.ImageKey = mute ? "Mute.png" : "Unmute.png";
+          //  btnMuteUnmute.ImageKey = mute ? "Mute.png" : "Unmute.png";
         }
         public void UpdateVolume()
         {
@@ -351,7 +305,7 @@ namespace QuranSeving.Seveing
             switch (com_c1.SelectedIndex)
             {
                 case 0:
-                    pathK = "Minshawy_Murattal_128kbps";
+                    pathK = "Minshawy_Murattal_48kbps";
                     break;
                 case 1:
                     pathK = "Banna_32kbps";
@@ -374,13 +328,6 @@ namespace QuranSeving.Seveing
             {
                 waveOut.Stop();
             }
-            if (wo != null)
-            {
-                if (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    wo.Stop();
-                }
-            }
         }
 
         private void buttonPause_Click(object sender, EventArgs e)
@@ -392,191 +339,105 @@ namespace QuranSeving.Seveing
                     waveOut.Pause();
                 }
             }
-            if (wo != null)
-            {
-                if (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    wo.Pause();
-                }
-            }
         }
 
         private void trackBarPosition_ValueChanged(object sender, EventArgs e)
         {
-            try
+            int last;
+            last = trackBarPosition.Maximum - 1;
+            if (trackBarPosition.Value >= last)
             {
-                int last;
-                last = trackBarPosition.Maximum - 1;
-                if (trackBarPosition.Value >= last)
-                {
-                    SetNext();
-                }
+                SetNext();
             }
-            catch (Exception ex)
-            {
-
-                timer1.Enabled = false;
-                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
-            }
-           
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            CleanUp();
+
+            if (waveOut != null)
+            {
+                if (waveOut.PlaybackState == PlaybackState.Playing)
+                {
+                    return;
+                }
+                else if (waveOut.PlaybackState == PlaybackState.Paused)
+                {
+                    waveOut.Play();
+
+                    return;
+                }
+            }
+            mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
             try
             {
-                CleanUp();
-
-                if (waveOut != null)
-                {
-                    if (waveOut.PlaybackState == PlaybackState.Playing)
-                    {
-                        return;
-                    }
-                    else if (waveOut.PlaybackState == PlaybackState.Paused)
-                    {
-                        waveOut.Play();
-
-                        return;
-                    }
-                }
-                if (wo != null)
-                {
-                    if (wo.PlaybackState == PlaybackState.Playing)
-                    {
-                        return;
-                    }
-                    else if (wo.PlaybackState == PlaybackState.Paused)
-                    {
-                        wo.Play();
-
-                        return;
-                    }
-                }
-                mp3sToWrapArray.AddRange(Mp3List(startSurahMP3, startAyahMP3, endSurahMP3, endAyahMP3));
-
                 if (current > endAyahMP3 - 1) current = 0;
                 if (currentendAyah > endAyahMP3) currentendAyah = 0;
-
                 BeginPlayback(mp3sToWrapArray[current]);
-
                 Rich_teb_1.Text = library.q.surahs[startSurah].ayat[current].text;
-                if (RNotNet.Checked)
-                {
-                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)audioFileReader.TotalTime.TotalMinutes,
-                 audioFileReader.TotalTime.Seconds);
-                }
-                else
-                {
-                    labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)mf.TotalTime.TotalMinutes,
-                      mf.TotalTime.Seconds);
-                }
 
             }
             catch (Exception createException)
             {
-                timer1.Enabled = false;
                 MessageBox.Show(String.Format("{0}", createException.Message), "Error Loading File");
                 return;
             }
-
-
+            labelTotalTime.Text = String.Format("{0:00}:{1:00}", (int)audioFileReader.TotalTime.TotalMinutes,
+                audioFileReader.TotalTime.Seconds);
         }
 
         private void trackBarPosition_Scroll(object sender, EventArgs e)
         {
-            try
+            if (waveOut != null)
             {
-                if (waveOut != null || wo != null)
-                {
-                    if (RNotNet.Checked)
-                    {
-                        audioFileReader.CurrentTime = TimeSpan.FromSeconds(audioFileReader.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
-                        audioFileReader.Position = trackBarPosition.Value;
-                    }
-                    else
-                    {
-                        mf.CurrentTime = TimeSpan.FromSeconds(mf.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
-                        mf.Position = trackBarPosition.Value;
-                    }
-                }
+                audioFileReader.CurrentTime = TimeSpan.FromSeconds(audioFileReader.TotalTime.TotalSeconds * trackBarPosition.Value / 100.0);
+                audioFileReader.Position = trackBarPosition.Value;
             }
-            catch (Exception ex)
-            {
-
-                timer1.Enabled = false;
-                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
-            }
-           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            try
+            if (waveOut != null && audioFileReader != null)
             {
 
-                if (RNotNet.Checked)
-                {
-                    if (waveOut != null && audioFileReader != null)
-                    {
-
-                        TimeSpan currentTime = (waveOut.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : audioFileReader.CurrentTime;
-                        trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / audioFileReader.TotalTime.TotalSeconds));
-                        labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
-                            currentTime.Seconds);
-                    }
-                    else
-                    {
-                        trackBarPosition.Value = 0;
-                    }
-                }
-                else if (RNet.Checked)
-                {
-                    if ( mf != null && wo != null)
-                    {
-
-                        TimeSpan currentTime = (wo.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : mf.CurrentTime;
-                        trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / mf.TotalTime.TotalSeconds));
-                        labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
-                            currentTime.Seconds);
-                    }
-                    else
-                    {
-                        trackBarPosition.Value = 0;
-                    }
-                }
-
+                TimeSpan currentTime = (waveOut.PlaybackState == PlaybackState.Stopped) ? TimeSpan.Zero : audioFileReader.CurrentTime;
+                trackBarPosition.Value = Math.Min(trackBarPosition.Maximum, (int)(100 * currentTime.TotalSeconds / audioFileReader.TotalTime.TotalSeconds));
+                labelCurrentTime.Text = String.Format("{0:00}:{1:00}", (int)currentTime.TotalMinutes,
+                    currentTime.Seconds);
             }
-            catch (Exception ex)
+            else
             {
-                timer1.Enabled = false;
-                MessageBox.Show(String.Format("{0}", ex.Message), "Error Loading File");
+                trackBarPosition.Value = 0;
             }
-
-
         }
         public DataTable ds2 = new DataTable();
-        private void btnEnter_Click(object sender, EventArgs e)
+        private async void btnEnter_Click(object sender, EventArgs e)
         {
             string ConString3 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUser\\{0}", "DatabaseUser.db3");
-            SQLiteConnection conn3 = new SQLiteConnection(ConString3);
-            if (conn3.State == System.Data.ConnectionState.Open)
-                conn3.Close();
-            string SQL3str = "SELECT * FROM de WHERE mname=@mname and pass=@pass";
-            SQLiteDataAdapter adp = new SQLiteDataAdapter(SQL3str, conn3);
-            adp.SelectCommand.Parameters.AddWithValue("@mname", ComName.Text);
-            adp.SelectCommand.Parameters.AddWithValue("@pass", txtPas.Text);
-            adp.Fill(ds2);
-            if (ds2.Rows.Count > 0)
+
+            using (var db = await database.TryCreateDatabase(ConString3))
             {
-                G_LOGIN.Visible = false;
-                Program.SalesMan = ds2.Rows[0]["mname"].ToString();
-                txtSalesMan.Text = ds2.Rows[0]["mname"].ToString();
-                txt_timerec.Text = ds2.Rows[0]["hkeep"].ToString();
-                txt_dayrec.Text = ds2.Rows[0]["dayrec"].ToString();
-                txt_morec.Text = ds2.Rows[0]["morec"].ToString();
-                txt_yearrec.Text = ds2.Rows[0]["yearrec"].ToString();
+
+                var nday = db.Table<SevaUser>().Where(a => a.mname == ComName.Text && a.pass ==int.Parse(txtPas.Text)).ToList();
+
+                foreach (var item in nday)
+                {
+                    G_LOGIN.Visible = false;
+                    Program.SalesMan = item.mname.ToString();
+                    txtSalesMan.Text = item.mname.ToString();
+                    txt_timerec.Text = item.hkeep.ToString();
+                    txt_dayrec.Text = item.dayrec.ToString();
+                    txt_morec.Text = item.morec.ToString();
+                    txt_yearrec.Text = item.yearrec.ToString();
+                }
+
+
+
+
             }
+
+
+           
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -615,12 +476,12 @@ namespace QuranSeving.Seveing
                 switch (com_c2.SelectedIndex)
                 {
                     case 0:
-                        ImageNum1 = 4;
+                        ImageNum1 = 1;
 
                         CountStartAyahPage = 7;
                         break;
                     case 1:
-                        ImageNum1 = 5;
+                        ImageNum1 = 2;
 
                         CountStartAyahPage = 5;
 
@@ -916,11 +777,44 @@ namespace QuranSeving.Seveing
             Frm_Mushaf frm = new Frm_Mushaf(pathK, ImageNum1, ImageNum2, startSurah, CountStartAyahPage);
             frm.Show();
         }
+    }
+    public class MuteEventArgs : EventArgs
+    {
+        public MuteEventArgs(bool muted)
+        {
+            Muted = muted;
+        }
 
+        public bool Muted { get; private set; }
+    }
 
-        private VolumeWaveProvider16 volumeProvider;
+    public class VolumeEventArgs : EventArgs
+    {
+        public VolumeEventArgs(float volume)
+        {
+            Volume = volume;
+        }
 
+        public float Volume { get; private set; }
+    }
+    public class IconExtractor
+    {
+        public static Icon Extract(string file, int number, bool largeIcon)
+        {
+            IntPtr large;
+            IntPtr small;
+            ExtractIconEx(file, number, out large, out small, 1);
+            try
+            {
+                return Icon.FromHandle(largeIcon ? large : small);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
-
+        [DllImport("Shell32.dll")]
+        private static extern int ExtractIconEx(string sFile, int iIndex, out IntPtr piLargeVersion, out IntPtr piSmallVersion, int amountIcons);
     }
 }

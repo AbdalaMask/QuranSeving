@@ -118,44 +118,44 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Prev_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prev_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="فكرة_وبرمجة_موقع_القرآن_حياتنا_لا_تنسونا_من_صالح_دعائكم" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\فكرة وبرمجة موقع القرآن حياتنا لا تنسونا من صالح دعائكم.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Next_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Next_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconfinder_kuran_56315 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_kuran_56315 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_0004" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\images\0004.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddNewDataSource_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddNewDataSource_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AddNewDataSource_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddNewDataSource_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_ma1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_ma1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DeleteDataSource2_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteDataSource2_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditDataSource_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditDataSource_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EditDataSource_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EditDataSource_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconfinder_kuran_56315 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconfinder_kuran_56315 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconfinder_minber_56317 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconfinder_minber_56317 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddNewDataSource_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddNewDataSource_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeleteDataSource2_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteDataSource2_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="iconfinder_seccade_56318 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconfinder_seccade_56318 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_ma1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_ma1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Next_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Next_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Prev_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prev_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,16 +163,13 @@
   <data name="TabPage3_BackgroundImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TabPage3.BackgroundImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_0005" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\images\0005.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EditDataSource_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EditDataSource_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="elforkane" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\elforkane.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="فكرة_وبرمجة_موقع_القرآن_حياتنا_لا_تنسونا_من_صالح_دعائكم" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\فكرة وبرمجة موقع القرآن حياتنا لا تنسونا من صالح دعائكم.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

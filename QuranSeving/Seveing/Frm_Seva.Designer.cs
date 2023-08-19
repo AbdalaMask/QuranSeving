@@ -30,32 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Seva));
-            this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonHeaderGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.txt_hapday = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_yearrec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_morec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_dayrec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_timerec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btn_Frm_Kep = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonHeaderGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtTimeHI = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtSalesMan = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonSplitContainer2 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonHeaderGroup4 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.btnMuteUnmute = new System.Windows.Forms.Button();
-            this.ilMuteUnmute = new System.Windows.Forms.ImageList(this.components);
-            this.tbVolume = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonSplitContainer1 = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonHeaderGroup2 = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.txt_hapday = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_yearrec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_morec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_dayrec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_timerec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.btn_Frm_Kep = new Krypton.Toolkit.KryptonButton();
+            this.kryptonHeaderGroup1 = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
+            this.txtTimeHI = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.txtSalesMan = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonSplitContainer2 = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonHeaderGroup4 = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.btnMuteUnmute = new Krypton.Toolkit.KryptonButton();
+            this.tbVolume = new Krypton.Toolkit.KryptonTrackBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.buttonPlay = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,23 +66,23 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.labelCurrentTime = new System.Windows.Forms.ToolStripLabel();
-            this.trackBarPosition = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonHeaderGroup3 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.com_c2 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.btn_Frm_Mushaf = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.com_c1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel13 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.G_LOGIN = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.btnEnter = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.RNotNet = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.RNet = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.txtPas = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel16 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ComName = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.trackBarPosition = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonHeaderGroup3 = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.kryptonButton2 = new Krypton.Toolkit.KryptonButton();
+            this.com_c2 = new Krypton.Toolkit.KryptonComboBox();
+            this.btn_Frm_Mushaf = new Krypton.Toolkit.KryptonButton();
+            this.com_c1 = new Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel13 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel14 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel15 = new Krypton.Toolkit.KryptonLabel();
+            this.G_LOGIN = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.btnEnter = new Krypton.Toolkit.KryptonButton();
+            this.kryptonRadioButton2 = new Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonRadioButton1 = new Krypton.Toolkit.KryptonRadioButton();
+            this.txtPas = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel16 = new Krypton.Toolkit.KryptonLabel();
+            this.ComName = new Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel12 = new Krypton.Toolkit.KryptonLabel();
             this.Rich_teb_1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
@@ -91,12 +90,6 @@
             this.btn_Sevaing = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.AddCt = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.EditrCt = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.DelCt = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -134,7 +127,6 @@
             this.G_LOGIN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComName)).BeginInit();
             this.toolStrip3.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonSplitContainer1
@@ -162,8 +154,8 @@
             // 
             // kryptonHeaderGroup2
             // 
-            this.kryptonHeaderGroup2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
-            this.kryptonHeaderGroup2.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeaderGroup2.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+            this.kryptonHeaderGroup2.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeaderGroup2.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup2.Location = new System.Drawing.Point(10, 3);
             this.kryptonHeaderGroup2.Name = "kryptonHeaderGroup2";
@@ -282,8 +274,8 @@
             // kryptonHeaderGroup1
             // 
             this.kryptonHeaderGroup1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonHeaderGroup1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
-            this.kryptonHeaderGroup1.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeaderGroup1.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+            this.kryptonHeaderGroup1.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeaderGroup1.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup1.Location = new System.Drawing.Point(843, 38);
             this.kryptonHeaderGroup1.Name = "kryptonHeaderGroup1";
@@ -335,7 +327,7 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldControl;
             this.kryptonLabel3.Location = new System.Drawing.Point(91, 12);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(156, 20);
@@ -385,8 +377,8 @@
             // 
             this.kryptonHeaderGroup4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonHeaderGroup4.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
-            this.kryptonHeaderGroup4.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeaderGroup4.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+            this.kryptonHeaderGroup4.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeaderGroup4.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup4.Location = new System.Drawing.Point(3, 3);
             this.kryptonHeaderGroup4.Name = "kryptonHeaderGroup4";
@@ -399,29 +391,20 @@
             this.kryptonHeaderGroup4.Panel.Controls.Add(this.trackBarPosition);
             this.kryptonHeaderGroup4.Size = new System.Drawing.Size(797, 175);
             this.kryptonHeaderGroup4.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonHeaderGroup4.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeaderGroup4.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonHeaderGroup4.TabIndex = 9;
             this.kryptonHeaderGroup4.ValuesPrimary.Heading = "المشغل";
             // 
             // btnMuteUnmute
             // 
-            this.btnMuteUnmute.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMuteUnmute.ImageList = this.ilMuteUnmute;
-            this.btnMuteUnmute.Location = new System.Drawing.Point(712, 120);
+            this.btnMuteUnmute.Location = new System.Drawing.Point(717, 117);
             this.btnMuteUnmute.Name = "btnMuteUnmute";
-            this.btnMuteUnmute.Size = new System.Drawing.Size(28, 28);
-            this.btnMuteUnmute.TabIndex = 5;
-            this.btnMuteUnmute.UseVisualStyleBackColor = true;
+            this.btnMuteUnmute.Size = new System.Drawing.Size(27, 31);
+            this.btnMuteUnmute.TabIndex = 3;
+            this.btnMuteUnmute.Values.Text = "";
             this.btnMuteUnmute.Click += new System.EventHandler(this.btnMuteUnmute_Click);
-            // 
-            // ilMuteUnmute
-            // 
-            this.ilMuteUnmute.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilMuteUnmute.ImageStream")));
-            this.ilMuteUnmute.TransparentColor = System.Drawing.Color.Transparent;
-            this.ilMuteUnmute.Images.SetKeyName(0, "Mute.png");
-            this.ilMuteUnmute.Images.SetKeyName(1, "Unmute.png");
             // 
             // tbVolume
             // 
@@ -546,15 +529,14 @@
             // kryptonHeaderGroup3
             // 
             this.kryptonHeaderGroup3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonHeaderGroup3.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
-            this.kryptonHeaderGroup3.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeaderGroup3.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+            this.kryptonHeaderGroup3.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeaderGroup3.HeaderVisibleSecondary = false;
-            this.kryptonHeaderGroup3.Location = new System.Drawing.Point(806, 3);
+            this.kryptonHeaderGroup3.Location = new System.Drawing.Point(843, 3);
             this.kryptonHeaderGroup3.Name = "kryptonHeaderGroup3";
             // 
             // kryptonHeaderGroup3.Panel
             // 
-            this.kryptonHeaderGroup3.Panel.Controls.Add(this.toolStrip4);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonButton2);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.com_c2);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.btn_Frm_Mushaf);
@@ -562,13 +544,13 @@
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel13);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel14);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonLabel15);
-            this.kryptonHeaderGroup3.Size = new System.Drawing.Size(376, 171);
+            this.kryptonHeaderGroup3.Size = new System.Drawing.Size(339, 171);
             this.kryptonHeaderGroup3.TabIndex = 8;
             this.kryptonHeaderGroup3.ValuesPrimary.Heading = "معلومات ";
             // 
             // kryptonButton2
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(58, 107);
+            this.kryptonButton2.Location = new System.Drawing.Point(43, 91);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.Size = new System.Drawing.Size(121, 27);
             this.kryptonButton2.TabIndex = 6;
@@ -579,16 +561,16 @@
             // 
             this.com_c2.DropDownWidth = 121;
             this.com_c2.IntegralHeight = false;
-            this.com_c2.Location = new System.Drawing.Point(58, 80);
+            this.com_c2.Location = new System.Drawing.Point(43, 64);
             this.com_c2.Name = "com_c2";
             this.com_c2.Size = new System.Drawing.Size(121, 21);
-            this.com_c2.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.com_c2.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.com_c2.TabIndex = 5;
             this.com_c2.SelectedIndexChanged += new System.EventHandler(this.com_c2_SelectedIndexChanged);
             // 
             // btn_Frm_Mushaf
             // 
-            this.btn_Frm_Mushaf.Location = new System.Drawing.Point(210, 107);
+            this.btn_Frm_Mushaf.Location = new System.Drawing.Point(195, 91);
             this.btn_Frm_Mushaf.Name = "btn_Frm_Mushaf";
             this.btn_Frm_Mushaf.Size = new System.Drawing.Size(127, 27);
             this.btn_Frm_Mushaf.TabIndex = 4;
@@ -599,16 +581,16 @@
             // 
             this.com_c1.DropDownWidth = 121;
             this.com_c1.IntegralHeight = false;
-            this.com_c1.Location = new System.Drawing.Point(210, 80);
+            this.com_c1.Location = new System.Drawing.Point(195, 64);
             this.com_c1.Name = "com_c1";
             this.com_c1.Size = new System.Drawing.Size(127, 21);
-            this.com_c1.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.com_c1.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.com_c1.TabIndex = 3;
             this.com_c1.SelectedIndexChanged += new System.EventHandler(this.com_c1_SelectedIndexChanged);
             // 
             // kryptonLabel13
             // 
-            this.kryptonLabel13.Location = new System.Drawing.Point(64, 54);
+            this.kryptonLabel13.Location = new System.Drawing.Point(49, 38);
             this.kryptonLabel13.Name = "kryptonLabel13";
             this.kryptonLabel13.Size = new System.Drawing.Size(57, 20);
             this.kryptonLabel13.TabIndex = 2;
@@ -616,7 +598,7 @@
             // 
             // kryptonLabel14
             // 
-            this.kryptonLabel14.Location = new System.Drawing.Point(249, 54);
+            this.kryptonLabel14.Location = new System.Drawing.Point(234, 38);
             this.kryptonLabel14.Name = "kryptonLabel14";
             this.kryptonLabel14.Size = new System.Drawing.Size(54, 20);
             this.kryptonLabel14.TabIndex = 1;
@@ -624,8 +606,8 @@
             // 
             // kryptonLabel15
             // 
-            this.kryptonLabel15.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel15.Location = new System.Drawing.Point(106, 28);
+            this.kryptonLabel15.LabelStyle = Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel15.Location = new System.Drawing.Point(91, 12);
             this.kryptonLabel15.Name = "kryptonLabel15";
             this.kryptonLabel15.Size = new System.Drawing.Size(156, 20);
             this.kryptonLabel15.TabIndex = 0;
@@ -633,15 +615,15 @@
             // 
             // G_LOGIN
             // 
-            this.G_LOGIN.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.G_LOGIN.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.DockActive;
             this.G_LOGIN.Location = new System.Drawing.Point(408, 11);
             this.G_LOGIN.Name = "G_LOGIN";
             // 
             // G_LOGIN.Panel
             // 
             this.G_LOGIN.Panel.Controls.Add(this.btnEnter);
-            this.G_LOGIN.Panel.Controls.Add(this.RNotNet);
-            this.G_LOGIN.Panel.Controls.Add(this.RNet);
+            this.G_LOGIN.Panel.Controls.Add(this.kryptonRadioButton2);
+            this.G_LOGIN.Panel.Controls.Add(this.kryptonRadioButton1);
             this.G_LOGIN.Panel.Controls.Add(this.txtPas);
             this.G_LOGIN.Panel.Controls.Add(this.kryptonLabel16);
             this.G_LOGIN.Panel.Controls.Add(this.ComName);
@@ -659,22 +641,21 @@
             this.btnEnter.Values.Text = "الدخول";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // RNotNet
+            // kryptonRadioButton2
             // 
-            this.RNotNet.Location = new System.Drawing.Point(55, 123);
-            this.RNotNet.Name = "RNotNet";
-            this.RNotNet.Size = new System.Drawing.Size(70, 20);
-            this.RNotNet.TabIndex = 5;
-            this.RNotNet.Values.Text = "لا يوجد  نت";
+            this.kryptonRadioButton2.Location = new System.Drawing.Point(55, 123);
+            this.kryptonRadioButton2.Name = "kryptonRadioButton2";
+            this.kryptonRadioButton2.Size = new System.Drawing.Size(70, 20);
+            this.kryptonRadioButton2.TabIndex = 5;
+            this.kryptonRadioButton2.Values.Text = "لا يوجد  نت";
             // 
-            // RNet
+            // kryptonRadioButton1
             // 
-            this.RNet.Checked = true;
-            this.RNet.Location = new System.Drawing.Point(67, 97);
-            this.RNet.Name = "RNet";
-            this.RNet.Size = new System.Drawing.Size(57, 20);
-            this.RNet.TabIndex = 4;
-            this.RNet.Values.Text = "يوجد نت";
+            this.kryptonRadioButton1.Location = new System.Drawing.Point(67, 97);
+            this.kryptonRadioButton1.Name = "kryptonRadioButton1";
+            this.kryptonRadioButton1.Size = new System.Drawing.Size(57, 20);
+            this.kryptonRadioButton1.TabIndex = 4;
+            this.kryptonRadioButton1.Values.Text = "يوجد نت";
             // 
             // txtPas
             // 
@@ -701,7 +682,7 @@
             this.ComName.Location = new System.Drawing.Point(22, 32);
             this.ComName.Name = "ComName";
             this.ComName.Size = new System.Drawing.Size(121, 21);
-            this.ComName.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.ComName.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.ComName.TabIndex = 1;
             this.ComName.Text = " ";
             // 
@@ -776,58 +757,6 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // toolStrip4
-            // 
-            this.toolStrip4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddCt,
-            this.toolStripSeparator4,
-            this.EditrCt,
-            this.toolStripSeparator5,
-            this.DelCt});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(374, 25);
-            this.toolStrip4.TabIndex = 7;
-            this.toolStrip4.Text = "toolStrip4";
-            // 
-            // AddCt
-            // 
-            this.AddCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddCt.Image = global::QuranSeving.Properties.Resources.AddNewDataSource_16x16;
-            this.AddCt.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddCt.Name = "AddCt";
-            this.AddCt.Size = new System.Drawing.Size(23, 22);
-            this.AddCt.Text = "اضافة قارئ";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // EditrCt
-            // 
-            this.EditrCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditrCt.Image = global::QuranSeving.Properties.Resources.EditDataSource_16x16;
-            this.EditrCt.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditrCt.Name = "EditrCt";
-            this.EditrCt.Size = new System.Drawing.Size(23, 22);
-            this.EditrCt.Text = "تعديل قارئ";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // DelCt
-            // 
-            this.DelCt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DelCt.Image = global::QuranSeving.Properties.Resources.DeleteDataSource2_32x32;
-            this.DelCt.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DelCt.Name = "DelCt";
-            this.DelCt.Size = new System.Drawing.Size(23, 22);
-            this.DelCt.Text = "حذف قارئ";
-            // 
             // Frm_Seva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,8 +818,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ComName)).EndInit();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -898,57 +825,58 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_hapday;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel11;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_yearrec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_morec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_dayrec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_timerec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Frm_Kep;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel txtTimeHI;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel txtSalesMan;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer2;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar tbVolume;
+        private Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
+        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup2;
+        private Krypton.Toolkit.KryptonTextBox txt_hapday;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel11;
+        private Krypton.Toolkit.KryptonTextBox txt_yearrec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel10;
+        private Krypton.Toolkit.KryptonTextBox txt_morec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonTextBox txt_dayrec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonTextBox txt_timerec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonButton btn_Frm_Kep;
+        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup1;
+        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private Krypton.Toolkit.KryptonLabel txtTimeHI;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonLabel txtSalesMan;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer2;
+        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup4;
+        private Krypton.Toolkit.KryptonButton btnMuteUnmute;
+        private Krypton.Toolkit.KryptonTrackBar tbVolume;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton buttonPlay;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton buttonStop;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton buttonPause;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar trackBarPosition;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox com_c2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Frm_Mushaf;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox com_c1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel13;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel14;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel15;
+        private Krypton.Toolkit.KryptonTrackBar trackBarPosition;
+        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup3;
+        private Krypton.Toolkit.KryptonButton kryptonButton2;
+        private Krypton.Toolkit.KryptonComboBox com_c2;
+        private Krypton.Toolkit.KryptonButton btn_Frm_Mushaf;
+        private Krypton.Toolkit.KryptonComboBox com_c1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel13;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel14;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel15;
         internal System.Windows.Forms.RichTextBox Rich_teb_1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel labelTotalTime;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup G_LOGIN;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEnter;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton RNotNet;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton RNet;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPas;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel16;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComName;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel12;
+        private Krypton.Toolkit.KryptonHeaderGroup G_LOGIN;
+        private Krypton.Toolkit.KryptonButton btnEnter;
+        private Krypton.Toolkit.KryptonRadioButton kryptonRadioButton2;
+        private Krypton.Toolkit.KryptonRadioButton kryptonRadioButton1;
+        private Krypton.Toolkit.KryptonTextBox txtPas;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel16;
+        private Krypton.Toolkit.KryptonComboBox ComName;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel12;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel labelCurrentTime;
@@ -957,13 +885,5 @@
         private System.Windows.Forms.ToolStripButton btn_Sevaing;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.Button btnMuteUnmute;
-        private System.Windows.Forms.ImageList ilMuteUnmute;
-        private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ToolStripButton AddCt;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton EditrCt;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton DelCt;
     }
 }

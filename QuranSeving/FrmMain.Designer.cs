@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.barButtonExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,15 +45,13 @@
             this.barButtonOther_Save = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Frm_Seva = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.ts_Frm_Mushaf = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black;
+            this.kryptonManager1.GlobalPaletteMode = Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
             // toolStrip1
             // 
@@ -132,9 +130,7 @@
             this.toolStripSeparator1,
             this.barButtonOther_Save,
             this.toolStripSeparator2,
-            this.btn_Frm_Seva,
-            this.toolStripSeparator3,
-            this.ts_Frm_Mushaf});
+            this.btn_Frm_Seva});
             this.toolStrip2.Location = new System.Drawing.Point(0, 24);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1132, 55);
@@ -178,21 +174,6 @@
             this.btn_Frm_Seva.Text = "الحفظ";
             this.btn_Frm_Seva.Click += new System.EventHandler(this.btn_Frm_Seva_Click);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 55);
-            // 
-            // ts_Frm_Mushaf
-            // 
-            this.ts_Frm_Mushaf.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ts_Frm_Mushaf.Image = global::QuranSeving.Properties.Resources.elforkane;
-            this.ts_Frm_Mushaf.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ts_Frm_Mushaf.Name = "ts_Frm_Mushaf";
-            this.ts_Frm_Mushaf.Size = new System.Drawing.Size(96, 52);
-            this.ts_Frm_Mushaf.Text = "المصحف";
-            this.ts_Frm_Mushaf.Click += new System.EventHandler(this.ts_Frm_Mushaf_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,7 +198,7 @@
         }
 
         #endregion
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem barButtonExit;
@@ -232,8 +213,6 @@
         private System.Windows.Forms.ToolStripButton btn_Frm_Seva;
         private System.Windows.Forms.ToolStripMenuItem حولToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btn_FormAbout;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton ts_Frm_Mushaf;
     }
 }
 

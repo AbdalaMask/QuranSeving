@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using NAudio.Wave;
 using QuranSeving.Seveing;
 using System;
@@ -31,8 +31,8 @@ namespace QuranSeving.Mushaf
         int endSurahMP3 = 1;
         int endAyahMP3 = 7;
         string pathK;
-        int ImageNum1 = 4;
-        int ImageNum2 = 5;
+        int ImageNum1 = 1;
+        int ImageNum2 = 1;
         bool result;
         int startSurah = 0;
         int startAyahPage = 0;
@@ -55,7 +55,7 @@ namespace QuranSeving.Mushaf
             this.pathK = pathK;
 
         }
-        public Frm_Mushaf(string pathK, int ImageNum1 = 4, int ImageNum2 = 5, int startSurah = 0, int CountStartAyahPage = 0)
+        public Frm_Mushaf(string pathK, int ImageNum1 = 1, int ImageNum2 = 2, int startSurah = 0, int CountStartAyahPage = 0)
         {
             InitializeComponent();
             this.pathK = pathK;
@@ -259,7 +259,6 @@ namespace QuranSeving.Mushaf
 
 
                         LBL_S1_A1 = new Label();
-                        LBL_S1_A1.BorderStyle = BorderStyle.FixedSingle;
                         LBL_S1_A1.BackColor = Color.Transparent;
                         LBL_S1_A1.Location = new Point(X, Y);
                         LBL_S1_A1.Name = string.Format("Page{0}_S{1}_A{2}", Page, Surah, i);
@@ -286,7 +285,7 @@ namespace QuranSeving.Mushaf
             try
             {
                 cot.Controls.Clear();
-                int wid = cot.Width;
+                int wid = 404;
                 int hgt = 200;
                 int margin = 5;
                 int x = margin;
@@ -581,26 +580,26 @@ namespace QuranSeving.Mushaf
        
         private void Frm_Mushaf_Load(object sender, EventArgs e)
         {
-            if (ImageNum1 == 4 || ImageNum1 == 77)
+            if (ImageNum1 == 1 || ImageNum1 == 77)
             {
 
                 P2.BackColor = Color.White;
                 P2.BackgroundImage = null;
-                P1.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                P1.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
                 SetControlsToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
-                SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1-3);
+                SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
 
                 result = false;
             }
 
-            if (ImageNum1 == 5 || ImageNum1 == 50)
+            if (ImageNum1 == 2 || ImageNum1 == 50)
             {
 
                 P1.BackColor = Color.White;
                 P1.BackgroundImage = null;
-                P2.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                P2.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
                 SetControlsToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
-                SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1 );
+                SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
                 result = true;
             }
             //=======================================================================================================
@@ -633,8 +632,8 @@ namespace QuranSeving.Mushaf
                     P1.BackColor = Color.White;
                     P1.BackgroundImage = null;
                     SetControlsToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
-                    SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1-3);
-                    P2.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                    SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
+                    P2.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
                     result = true;
 
                 }
@@ -644,8 +643,8 @@ namespace QuranSeving.Mushaf
                     P2.BackColor = Color.White;
                     P2.BackgroundImage = null;
                     SetControlsToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
-                    SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1 - 3);
-                    P1.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                    SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
+                    P1.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
 
                     result = false;
 
@@ -671,9 +670,9 @@ namespace QuranSeving.Mushaf
 
                     P1.BackColor = Color.White;
                     P1.BackgroundImage = null;
-                    P2.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                    P2.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
                     SetControlsToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
-                    SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1 - 3);
+                    SetControlsTranslatorToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
                     result = true;
                 }
                 else
@@ -681,9 +680,9 @@ namespace QuranSeving.Mushaf
 
                     P2.BackColor = Color.White;
                     P2.BackgroundImage = null;
-                    P1.BackgroundImage = Image.FromFile(Application.StartupPath + $"\\images\\{ImageNum1:d4}.jpg");
+                    P1.BackgroundImage = Image.FromFile(Application.StartupPath + string.Format("\\images\\{0}.PNG", ImageNum1));
                     SetControlsToPanel(P1, startSurah, CountStartAyahPage, ImageNum1);
-                    SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1 - 3);
+                    SetControlsTranslatorToPanel(P2, startSurah, CountStartAyahPage, ImageNum1);
                     result = false;
                 }
 

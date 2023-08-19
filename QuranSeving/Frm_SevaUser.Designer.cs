@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SevaUser));
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_mname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txt_pass = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_ppass = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_hapday = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_timerec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_dayrec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_morec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txt_yearrec = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.com_hkeep = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btn_seva = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_mname = new Krypton.Toolkit.KryptonTextBox();
+            this.txt_pass = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_ppass = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_hapday = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_timerec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_dayrec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_morec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.txt_yearrec = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.com_hkeep = new Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.btn_seva = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.com_hkeep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,7 +186,7 @@
             this.com_hkeep.Location = new System.Drawing.Point(297, 59);
             this.com_hkeep.Name = "com_hkeep";
             this.com_hkeep.Size = new System.Drawing.Size(158, 21);
-            this.com_hkeep.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.com_hkeep.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.com_hkeep.TabIndex = 16;
             // 
             // kryptonLabel9
@@ -244,24 +244,24 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_mname;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_pass;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_ppass;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_hapday;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_timerec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_dayrec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_morec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_yearrec;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox com_hkeep;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_seva;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonTextBox txt_mname;
+        private Krypton.Toolkit.KryptonTextBox txt_pass;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonTextBox txt_ppass;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonTextBox txt_hapday;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private Krypton.Toolkit.KryptonTextBox txt_timerec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonTextBox txt_dayrec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel6;
+        private Krypton.Toolkit.KryptonTextBox txt_morec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonTextBox txt_yearrec;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonComboBox com_hkeep;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonButton btn_seva;
     }
 }

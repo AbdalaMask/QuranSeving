@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using SQLite;
+using QuranLibrary.Sql;
 
 namespace QuranSeving
 {
     public partial class Frm_SevaUser : KryptonForm
     {
-        public string ConString1 = "Data Source =" + Application.StartupPath + "\\DatabaseUser\\DatabaseUser.db3";
-        public SQLiteConnection conn;
+        private QuranSevingSql database;
+        public string ConString1 =  Application.StartupPath + "\\DatabaseUser\\DatabaseUser.db3";
+     
         public Frm_SevaUser()
         {
             InitializeComponent();
@@ -28,28 +30,40 @@ namespace QuranSeving
             txt_morec.Text = DateTime.Today.Month.ToString();
             txt_yearrec.Text = DateTime.Today.Year.ToString();
         }
-        private void btn_seva_Click(object sender, EventArgs e)
+        private async void btn_seva_Click(object sender, EventArgs e)
         {
             if (txt_mname.Text == string.Empty || txt_pass.Text == string.Empty || txt_ppass.Text == string.Empty || com_hkeep.Text == string.Empty || txt_hapday.Text == string.Empty)
             {
                 MessageBox.Show("يجب ملاء جميع الخانات", "إعلام", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            conn = new SQLiteConnection(ConString1);
-            SQLiteCommand cmd = new SQLiteCommand("insert into de (mname,pass,ppass,hkeep,hapday,timerec,dayrec,morec,yearrec)values(@mname,@pass,@ppass,@hkeep,@hapday,@timerec,@dayrec,@morec,@yearrec)", conn);
-            cmd.Parameters.AddWithValue("@mname", txt_mname.Text);
-            cmd.Parameters.AddWithValue("@pass", txt_pass.Text);
-            cmd.Parameters.AddWithValue("@ppass", txt_ppass.Text);
-            cmd.Parameters.AddWithValue("@hkeep", com_hkeep.Text);
-            cmd.Parameters.AddWithValue("@hapday", txt_hapday.Text);
-            cmd.Parameters.AddWithValue("@timerec", txt_timerec.Text);
-            cmd.Parameters.AddWithValue("@dayrec", txt_dayrec.Text);
-            cmd.Parameters.AddWithValue("@morec", txt_morec.Text);
-            cmd.Parameters.AddWithValue("@yearrec", txt_yearrec.Text);
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+
+          
+
+            using (var db = await database.TryCreateDatabase(ConString1))
+            {
+
+                
+
+                db.Insert(new SevaUser
+                {
+                    mname = txt_mname.Text,
+                    pass =int.Parse(txt_pass.Text),
+                    ppass = int.Parse(txt_ppass.Text),
+                    hkeep = com_hkeep.Text,
+                    hapday = txt_hapday.Text,
+                    timerec = txt_timerec.Text,
+                    dayrec = txt_dayrec.Text,
+                    morec = txt_morec.Text,
+                    yearrec = txt_yearrec.Text,
+                   
+
+                }, typeof(SevaUser));
+
+
+            }
+        
             MessageBox.Show("تم الحفظ", "إعلام", MessageBoxButtons.OK);
         }
 
@@ -85,7 +99,7 @@ namespace QuranSeving
             com_hkeep.Items.Add("27 جزء");
             com_hkeep.Items.Add("28 جزء");
             com_hkeep.Items.Add("29 جزء");
-
+            database = new QuranSevingSql();
 
             txt_timerec.Text = DateTime.Today.ToShortTimeString();
             txt_dayrec.Text = DateTime.Today.ToShortDateString();
