@@ -79,8 +79,8 @@ namespace QuranLibrary.Sql
         [PrimaryKey, AutoIncrement, NotNullAttribute]
         public int ID { get; set; }
         [NotNullAttribute]
-        public int pass { get; set; }
-        public int ppass { get; set; }
+        public string pass { get; set; }
+        public string ppass { get; set; }
         public string mname { get; set; }
         public string hkeep { get; set; }
         public string hapday { get; set; }

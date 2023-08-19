@@ -413,12 +413,12 @@ namespace QuranSeving.Seveing
         public DataTable ds2 = new DataTable();
         private async void btnEnter_Click(object sender, EventArgs e)
         {
-            string ConString3 = "Data Source =" + Application.StartupPath + string.Format("\\DatabaseUser\\{0}", "DatabaseUser.db3");
+            string ConString3 =  Application.StartupPath + string.Format("\\DatabaseUser\\{0}", "DatabaseUser.db3");
 
             using (var db = await database.TryCreateDatabase(ConString3))
             {
 
-                var nday = db.Table<SevaUser>().Where(a => a.mname == ComName.Text && a.pass ==int.Parse(txtPas.Text)).ToList();
+                var nday = db.Table<SevaUser>().Where(a => a.mname == ComName.Text).Where(a =>  a.pass == txtPas.Text).ToList();
 
                 foreach (var item in nday)
                 {

@@ -49,8 +49,8 @@ namespace QuranSeving
                 db.Insert(new SevaUser
                 {
                     mname = txt_mname.Text,
-                    pass =int.Parse(txt_pass.Text),
-                    ppass = int.Parse(txt_ppass.Text),
+                    pass =txt_pass.Text,
+                    ppass =txt_ppass.Text,
                     hkeep = com_hkeep.Text,
                     hapday = txt_hapday.Text,
                     timerec = txt_timerec.Text,
